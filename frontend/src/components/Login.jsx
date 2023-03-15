@@ -11,7 +11,9 @@ import Boop from "./Boop";
 import useSound from "use-sound";
 import windowXp from "../sounds/windowXp.mp3";
 import aolemoji from "../images/aolemoji.png";
+import CreatorModal from "./CreatorModal";
 const Login = (props) => {
+    const [showModal, setShowModal] = useState(false);
     const { user, setUser } = useContext(UserContext);
     const [play] = useSound(windowXp, { volume: 0.05 });
     const [state, setState] = useState({
@@ -172,17 +174,24 @@ const Login = (props) => {
                             </a>
                         </button>
                         <hr />
-                        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-                            © 2023{" "}
-                            <a
-                                href="https://flowbite.com/"
-                                className="hover:underline"
-                            >
-                                SAIM MESSENGER™
-                            </a>
-                            . All Rights Reserved.{" "}
-                        </span>
                     </form>
+                    <div>
+                        <div className="flex flex-col items-center justify-center">
+                            <button
+                                className="px-4 py-2 text-black 100rounded-md hover:underline"
+                                type="button"
+                                onClick={() => {
+                                    setShowModal(true);
+                                }}
+                            >
+                                Creator of SAIM - Messenger
+                            </button>
+
+                            {showModal && (
+                                <CreatorModal setOpenModal={setShowModal} />
+                            )}
+                        </div>
+                    </div>
                 </span>
             </div>
         </>

@@ -14,6 +14,7 @@ import Lobby from './components/Lobby';
 import PrivateChat from './components/PrivateChat';
 import './App.css';
 import UsersList from './components/UsersList';
+import CreatorModal from './components/CreatorModal';
 
 function App() {
     const [authorized, setAuthorized] = useState("");
@@ -36,6 +37,7 @@ function App() {
                             <Route path="/rooms" element={<CreateRoom/>}/>
                             <Route path="/rooms/all" element={<Lobby authorized={authorized} setAuthorized={setAuthorized}/>}/>  
                             <Route path="/rooms/:roomId" element={<PrivateChat authorized={authorized} setAuthorized={setAuthorized}/>}/>                        
+                            <Route path="/creator" element={<CreatorModal authorized={authorized} setAuthorized={setAuthorized}/>}/>                        
                         </Route>
                     </Routes>
                 </UserProvider>
