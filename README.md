@@ -1,5 +1,5 @@
 # SAIM-MESSENGER
-##Created a chat application that reminisces the time when millennials used Aol Instant Messenger. 
+## Created a chat application that reminisces the time when millennials used Aol Instant Messenger. 
 ## Installation
 
 ### cd 'frontend' --> npm install
