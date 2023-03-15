@@ -1,12 +1,12 @@
 # SAIM-MESSENGER
- # Getting Started with Create React App
-Installation
 
-cd 'frontend' --> npm install
+## Installation
+
+###cd 'frontend' --> npm install
 npm start
 
 
-cd 'server' --> npm install
+###cd 'server' --> npm install
 nodemon server.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
