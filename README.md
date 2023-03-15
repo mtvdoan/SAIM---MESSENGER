@@ -3,11 +3,11 @@
 ## Installation
 
 ### cd 'frontend' --> npm install
-npm start
+#### npm start
 
 
 ### cd 'server' --> npm install
-nodemon server.js
+#### nodemon server.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
