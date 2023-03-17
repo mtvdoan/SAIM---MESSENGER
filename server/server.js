@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const http = require("http");
 require("dotenv").config();
 
@@ -34,9 +34,9 @@ const io = socketio(server, {
     },
 });
 
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//     res.sendFile(__dirname + "/index.html");
+// });
 
 io.on("connection", (socket) => {
     console.log(" server io ...on");
