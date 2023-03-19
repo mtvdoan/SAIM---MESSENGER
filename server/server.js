@@ -15,7 +15,7 @@ const http = require("http");
 require("dotenv").config();
 
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "https://saim-messenger-frontend.onrender.com" }));
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 // app.use(cors()); //new
 
 // const server = http.createServer(app); //new
@@ -43,7 +43,7 @@ const server = app.listen(port, () => console.log("Listening on port", port));
 
 const io = socketio(server, {
     cors: {
-        origin: "https://saim-messenger-frontend.onrender.com",
+        origin: "http://localhost:3000",
         methods: ["GET", "POST"],
         allowedHeaders: ["*"],
         credentials: true,
