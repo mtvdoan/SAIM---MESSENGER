@@ -6,7 +6,7 @@ module.exports.authenticate = (req, res, next) => {
     console.log({ secret });
     jwt.verify(req.cookies.userToken, secret, (err, payload) => {
         if (err) {
-            res.status(401).json({ message: "Unauthorized user" });
+            res.status(401).json({ message: "AH! Unauthorized user" });
         } else {
             next();
         }

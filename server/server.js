@@ -1,6 +1,10 @@
+//At this point server works when deployed but CHAT DOES NOT...NEED TO FIX SOCKET
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+const { Server } = require("socket.io"); //new
+
 const socketio = require("socket.io");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -11,7 +15,19 @@ const http = require("http");
 require("dotenv").config();
 
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "https://saim-messenger-frontend.onrender.com" }));
+// app.use(cors()); //new
+
+// const server = http.createServer(app); //new
+
+// const io = new Server(server, {
+//     //new
+//     cors: {
+//         origin: "https://saim-messenger-frontend.onrender.com",
+//         methods: ["GET", "POST"],
+//     },
+// });
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,7 +43,7 @@ const server = app.listen(port, () => console.log("Listening on port", port));
 
 const io = socketio(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://saim-messenger-frontend.onrender.com",
         methods: ["GET", "POST"],
         allowedHeaders: ["*"],
         credentials: true,
@@ -73,3 +89,7 @@ io.on("connection", (socket) => {
         );
     });
 });
+
+// server.listen("https://saim-messenger-server.onrender.com", () => { //new
+//   console.log("SERVER RUNNING");
+// });
