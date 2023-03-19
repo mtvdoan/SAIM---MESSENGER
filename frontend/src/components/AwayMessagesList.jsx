@@ -57,7 +57,9 @@ const AwayMessagesList = (props) => {
     };
     const deleteAwayMessage = (awayMessageId) => {
         axios
-            .delete("http://localhost:8000/api/awayMessages/" + awayMessageId)
+            .delete("http://localhost:8000/api/awayMessages/" + awayMessageId, {
+                withCredentials: true,
+            })
             .then(() => {
                 console.log("Successfully deleted away message from backend");
                 alert(`Away message has been deleted`);
@@ -80,7 +82,9 @@ const AwayMessagesList = (props) => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/awayMessages/")
+            .get("http://localhost:8000/api/awayMessages/all", {
+                withCredentials: true,
+            })
             .then((response) =>
                 setAwayMessagesList(
                     response.data,
@@ -93,7 +97,7 @@ const AwayMessagesList = (props) => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/users/")
+            .get("http://localhost:8000/api/users/", { withCredentials: true })
             .then((response) =>
                 setUsersList(
                     response.data,
@@ -105,7 +109,9 @@ const AwayMessagesList = (props) => {
     }, []);
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/awayMessages/")
+            .get("http://localhost:8000/api/awayMessages/all", {
+                withCredentials: true,
+            })
             .then((response) =>
                 setAwayMessagesList(
                     response.data,
@@ -118,11 +124,15 @@ const AwayMessagesList = (props) => {
 
     useEffect(() => {
         axios
-            .post("http://localhost:8000/api/awayMessages/", {
-                awayMessageLabel,
-                awayMessageCreator: userScreenName,
-                awayMessage,
-            })
+            .post(
+                "http://localhost:8000/api/awayMessages/",
+                { withCredentials: true },
+                {
+                    awayMessageLabel,
+                    awayMessageCreator: userScreenName,
+                    awayMessage,
+                }
+            )
             .then((res) => {
                 setAwayMessage(res.data);
                 console.log("Creation successful on backend", res.data);
@@ -136,41 +146,57 @@ const AwayMessagesList = (props) => {
 
     return (
         <>
-            <div>
-                <div className="w-auto">
-                    <nav className="whitespace-nowrap m-2 w-auto border-gray-200 px-2 sm:px-4 py-10 rounded-2xl shadow-2xl fill-indigo-400border-2  bg-blue-400">
-                        <div className="container grid grid-cols-2 content-center justify-between mx-auto w-auto">
-                            <div className="flex items-center justify">
-                                <h1 className="text-5xl mr-44 font-extrabold text-white dark:text-white">
-                                    SAIM - MESSENGER
+            <div className="AwayMessages">
+                <div className="">
+                    <nav className="flex flex-col justify-center items-center m-2 shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
+                        <div className=" flex flex-row">
+                            <Boop rotation={"5"} timing={"100"}>
+                                <img
+                                    src={aolemoji}
+                                    className=" h-20 w-25"
+                                    alt="aolemoji"
+                                />
+                            </Boop>
+                            <div className="flex flex-row justify-center">
+                                <h1 className="flex text-4xl items-center font-extrabold text-white dark:text-white">
+                                    <Boop rotation={"3"} timing={"100"}>
+                                        SAIM - MESSENGER 👋
+                                    </Boop>
                                 </h1>
                             </div>
-                            <div className="w-auto">
-                                <Boop rotation={"10"} timing={"100"}>
-                                    <p className="tracking-tighter text-gray-900 md:text-lg dark:text-gray-400">
-                                        <mark
-                                            className="w-auto grid grid-cols-2 content-center m-auto m-4 p-4 bg-blue-800 rounded-xl shadow-lg h-28"
-                                            style={{ width: "auto" }}
-                                        >
-                                            <h1 className=" text-5xl font-extrabold text-white dark:text-white mt-10">
-                                                @ {userScreenName}
-                                            </h1>
+                            <mark className="flex flex-row justify-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 w-54">
+                                <div className="flex flex-row justify-center items-center w-54 p-4 pb-4">
+                                    <h1
+                                        style={{ fontSize: "1.5rem" }}
+                                        className=" text-xl flex justify-center items-center font-extrabold text-white dark:text-white "
+                                    >
+                                        @ {user.screenName}
+                                    </h1>
+                                    <div>
+                                        <Boop rotation={"15"} timing={"100"}>
                                             <img
                                                 src={aolemoji}
                                                 alt="aolemoji"
                                                 style={{
-                                                    height: "150px",
-                                                    width: "200px",
+                                                    height: "100px",
+                                                    width: "100px",
                                                 }}
+                                                className=""
                                             />
-                                        </mark>
-                                    </p>
-                                </Boop>
-                            </div>
+                                        </Boop>
+                                    </div>
+                                </div>
+                            </mark>
                         </div>
-                    </nav>
+                        <div className="">
+                            <p className=" text-gray-900 md:text-lg dark:text-gray-900">
+                                A space where millennials can chat and share
+                                their hilarious away messages
+                            </p>
+                        </div>
+                    </nav>{" "}
                 </div>
-                <div className="max-w-screen-md mx-auto text-center justify-center content-center m-auto inline">
+                <div className=" text-center justify-center content-center m-auto inline">
                     <svg
                         aria-hidden="true"
                         className="w-12 h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
@@ -184,7 +210,7 @@ const AwayMessagesList = (props) => {
                         />
                     </svg>
 
-                    <h1 className="text-center max-w-full w-full text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
+                    <h1 className="text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">
                         <span>🤔</span>
                         Remember
                         <mark className="px-2 text-black bg-blue-600 rounded dark:bg-yellow-400 m-6">
@@ -195,69 +221,43 @@ const AwayMessagesList = (props) => {
                 </div>
                 <div className="p-4">
                     <div
-                        className="rounded-lg shadow-2xl m-auto"
+                        className="flex flex-col rounded-lg shadow-2xl justify-center items-center"
                         style={{ width: "auto" }}
                     >
-                        <div
-                            className="border-1 border-black bg-gray-300 m-2"
-                            style={{ width: "auto", height: "700px" }}
-                        >
+                        <div className="flex flex-col border-1 border-black bg-gray-300 m-2 rounded-lg">
                             <div
-                                className="text-xl h-12 p-4 font-extrabold dark:text-white bg-blue-500 border-black border-2"
+                                className="text-xl h-12 p-4 rounded-lg font-extrabold dark:text-white bg-blue-500 border-black border-2"
                                 style={{ width: "auto" }}
                             ></div>
-                            <div
-                                className=""
-                                style={{
-                                    maxHeight: "400px",
-                                    width: "auto",
-                                    height: "800px",
-                                }}
-                            >
+                            <div className="">
                                 <div
                                     className="border-2 whitespace-normal border-black overflow-auto p-2 m-4 bg-white"
                                     id="messages"
                                     style={{ maxHeight: "900px" }}
                                 >
-                                    <div
-                                        className="rt-body whitespace-normal m-2 card overflow-y-auto border-1 border-black"
-                                        style={{
-                                            width: "auto",
-                                            height: "1500px",
-                                            overflow: "visible",
-                                            scrollbarWidth: "700px",
-                                            whitespace: "wrap",
-                                            maxHeight: "500px",
-                                        }}
-                                    >
+                                    <div className="rt-body flex whitespace-normal m-2 card overflow-y-auto border-1 border-black">
                                         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                            <table
-                                                className="m-4 text-xl text-center bg-white text-black"
-                                                style={{ width: "1800px" }}
-                                            >
+                                            <table className="m-4 text-xl text-center bg-white text-black">
                                                 <thead className="text-3xl text-center bg-white text-black">
                                                     <tr className="">
                                                         <th scope="col">
                                                             Away Message
                                                         </th>
-                                                        <th scope="col">
+                                                        <th
+                                                            scope="col"
+                                                            className="w-48"
+                                                        >
                                                             Creator
                                                         </th>
                                                         <th
                                                             scope="col"
-                                                            className="whitespace-nowrap"
-                                                            script={{
-                                                                width: "500px",
-                                                            }}
+                                                            className="w-44 whitespace-nowrap"
                                                         >
                                                             Likes
                                                         </th>
                                                         <th
                                                             scope="col0"
-                                                            className=" grid grid-cols-2 content-center"
-                                                            style={{
-                                                                width: "",
-                                                            }}
+                                                            className=" w-54 items-center"
                                                         >
                                                             Action
                                                         </th>
@@ -302,7 +302,7 @@ const AwayMessagesList = (props) => {
                                                                     >
                                                                         <LikeButton />
                                                                     </td>
-                                                                    <td className="grid grid-cols-2 content-center">
+                                                                    <td className="flex flex-row m-4 items-center justify-center">
                                                                         {(() => {
                                                                             return awayMessage.awayMessageCreator ==
                                                                                 userScreenName ? (
@@ -342,7 +342,7 @@ const AwayMessagesList = (props) => {
                                                                                                     awayMessage._id
                                                                                                 )
                                                                                             }
-                                                                                            className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-2 border border-blue-700 rounded"
+                                                                                            className="bg-red-400 hover:bg-red-900 hover:animate-pulse shadow-lg text-white font-bold py-2 px-2 border border-blue-700 rounded"
                                                                                         >
                                                                                             Delete
                                                                                         </button>
@@ -362,7 +362,7 @@ const AwayMessagesList = (props) => {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-3 content-center text-4xl">
+                        <div className="flex flex-row">
                             <CreateAwayMessage />
                             <div className="m-auto">
                                 <Boop rotation={"5"} timing={"200"}>
@@ -372,9 +372,8 @@ const AwayMessagesList = (props) => {
                                         </Link>
                                     </button>
                                 </Boop>
-                                <div></div>
                             </div>
-                            <div className="m-auto">
+                            <div className="m-auto p-4">
                                 <a
                                     href
                                     onClick={handleLogOutClick}
@@ -384,7 +383,7 @@ const AwayMessagesList = (props) => {
                                         <span className="absolute top-0 right-0 w-5 h-5 rotate-45 translate-x-1/2 -translate-y-1/2 bg-white"></span>
                                     </span>
                                     <span className="absolute bottom-0 left-0 w-full h-full transition-all duration-500 ease-in-out delay-200 -translate-x-full translate-y-full bg-red-600 rounded-2xl group-hover:mb-12 group-hover:translate-x-0"></span>
-                                    <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white">
+                                    <span className="relative w-full text-center text-2xl font-extrabold text-white transition-colors duration-200 ease-in-out group-hover:text-white">
                                         Log Out
                                     </span>
                                 </a>

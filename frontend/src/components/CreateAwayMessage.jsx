@@ -32,7 +32,7 @@ const CreateAwayMessage = (props) => {
     const navigate = useNavigate();
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/awayMessages/")
+            .get("http://localhost:8000/api/awayMessages/all")
             .then((response) =>
                 setAwayMessagesList(
                     response.data,

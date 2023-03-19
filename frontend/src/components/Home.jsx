@@ -12,8 +12,11 @@ import useSound from "use-sound";
 import WindowsXpShutDown from "../sounds/WindowsXpShutDown.mp3";
 import IM from "../sounds/IM.mp3";
 import CreateRoom from "./CreateRoom";
+import man from "../images/aolemoji.png";
+import CreatorModal from "./CreatorModal";
 import Lobby from "./Lobby";
 const Home = (props) => {
+    const [showModal, setShowModal] = useState(false);
     const [state, setState] = useState({
         login: {
             email: "",
@@ -32,6 +35,7 @@ const Home = (props) => {
     console.log("what is socket", socket);
     const [messages, setMessages] = useState([]);
     const [currentMessage, setCurrentMessage] = useState("");
+
     const navigate = useNavigate();
     useEffect(() => {
         if (user.id === 0) {
@@ -97,9 +101,102 @@ const Home = (props) => {
     };
     return (
         <>
-            <div>
-                <div className="h-auto ">
-                    <nav className="whitespace-nowrap m-2 border-gray-200 px-2 sm:px-4 py-10 rounded-2xl shadow-2xl fill-indigo-400border-2  bg-blue-400">
+            <div className="Home">
+                <div className="flex justify-center  ">
+                    <nav className="flex flex-col m-2 shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
+                        <div className=" flex flex-row">
+                            <Boop rotation={"5"} timing={"100"}>
+                                <img
+                                    src={aolemoji}
+                                    className=" h-20 w-25"
+                                    alt="aolemoji"
+                                />
+                            </Boop>
+                            <div className="flex flex-row justify-center">
+                                <h1 className="flex text-4xl items-center font-extrabold text-white dark:text-white">
+                                    <Boop rotation={"3"} timing={"100"}>
+                                        SAIM - MESSENGER 👋
+                                    </Boop>
+                                </h1>
+                            </div>
+                            <mark className="flex flex-row justify-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 w-54">
+                                <div className="flex flex-row justify-center items-center w-54 p-4 pb-4">
+                                    <h1
+                                        style={{ fontSize: "1.5rem" }}
+                                        className=" text-xl flex justify-center items-center font-extrabold text-white dark:text-white "
+                                    >
+                                        @ {user.screenName}
+                                    </h1>
+                                    <div>
+                                        <Boop rotation={"15"} timing={"100"}>
+                                            <img
+                                                src={aolemoji}
+                                                alt="aolemoji"
+                                                style={{
+                                                    height: "100px",
+                                                    width: "100px",
+                                                }}
+                                                className=""
+                                            />
+                                        </Boop>
+                                    </div>
+                                </div>
+                            </mark>
+                        </div>
+                        <div className="">
+                            <p className=" text-gray-900 md:text-lg dark:text-gray-900">
+                                A space where millennials can chat and share
+                                their hilarious away messages
+                            </p>
+                        </div>
+                    </nav>{" "}
+                    {/* <nav className="flex flex-col m-2 shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
+                        <div className=" flex flex-row">
+                            <Boop rotation={"5"} timing={"100"}>
+                                <img
+                                    src={man}
+                                    className=" h-20 w-25"
+                                    alt="man"
+                                />
+                            </Boop>
+                            <div className="flex justify-center">
+                                <h1 className="flex text-4xl content-center font-extrabold text-white dark:text-white">
+                                    <Boop rotation={"3"} timing={"100"}>
+                                        SAIM - MESSENGER 👋
+                                    </Boop>
+                                </h1>
+                            </div>
+                            <mark className="grid grid-cols-2 content-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 w-48">
+                                <div className="flex justify-between w-48 p-4 pb-4">
+                                    <h1
+                                        style={{ fontSize: "1.5rem" }}
+                                        className=" text-xl flex justify-center items-center font-extrabold text-white dark:text-white "
+                                    >
+                                        @ {user.screenName}
+                                    </h1>
+                                    <Boop rotation={"15"} timing={"100"}>
+
+                                    <img
+                                        src={aolemoji}
+                                        alt="aolemoji"
+                                        style={{
+                                            height: "100px",
+                                            width: "100px",
+                                        }}
+                                        className="flex justify-end"
+                                    />
+                                    </Boop>
+                                </div>
+                            </mark>
+                        </div> */}
+                    {/* <div className="">
+                            <p className=" text-gray-900 md:text-lg dark:text-gray-900">
+                                A space where millennials can chat and share
+                                their hilarious away messages
+                            </p>
+                        </div>
+                    </nav> */}
+                    {/* <nav className="whitespace-nowrap m-2 border-gray-200 px-2 sm:px-4 py-10 rounded-2xl shadow-2xl fill-indigo-400border-2  bg-blue-400">
                         <div className="container grid grid-cols-2 content-center flex flex-wrap items-center justify-between mx-auto">
                             <div className="flex items-center justify">
                                 <h1 className="text-5xl mr-44 font-extrabold text-white dark:text-white">
@@ -127,30 +224,27 @@ const Home = (props) => {
                                 </Boop>
                             </div>
                         </div>
-                    </nav>
+                    </nav> */}
                 </div>
                 <div className="flex justify-center m-4">
                     <div>
-                        <div
-                            className=" block max-h-sm p-2 m-10 bg-gray-300 rounded-lg shadow-2xl hover:bg-gray-100  dark:border-gray-700 mt-2"
-                            style={{ width: "500px" }}
-                        >
-                            <div className="border-2 flex flex-col  border-black rounded-lg bg-blue-700 max-h-96 max-w-96">
-                                <p className="p-2 font-extrabold tracking-tighter text-white text-4xl -mt-30">
+                        <div className=" flex flex-col p-2 m-10 bg-gray-300 rounded-lg shadow-2xl hover:bg-gray-100  dark:border-gray-700 mt-2">
+                            <div className="border-2  flex flex-col h-52 w-96 border-black rounded-lg bg-blue-700">
+                                <p className="p-2 font-extrabold tracking-tighter text-white text-3xl -mt-30">
                                     SAIM - MESSENGER
                                 </p>
                                 <div className="flex justify-center flex-row">
-                                    <p className="font-extrabold text-6xl">"</p>
-                                    <div>
+                                    <p className="font-extrabold text-3xl">"</p>
+                                    <div className="-mt-12">
                                         <Boop
                                             rotation={"20"}
-                                            duration={"2000"}
+                                            duration={"200"}
                                             className=""
                                         >
                                             <img
                                                 src={aolemoji}
                                                 alt="aolemoji"
-                                                className="-mt-10"
+                                                className="h-50 w-50"
                                             />
                                         </Boop>
                                     </div>
@@ -158,7 +252,7 @@ const Home = (props) => {
                                 </div>
                             </div>
                             <div className="text-left">
-                                <h1 className="text-4xl font-extrabold m-4 text-black">
+                                <h1 className="text-3xl font-extrabold m-4 text-black">
                                     Buddies:
                                 </h1>
                                 <UserModal
@@ -167,7 +261,7 @@ const Home = (props) => {
                                     userEmail={user.email}
                                 />
                             </div>
-                            <div className="grid grid-cols-2 content-center">
+                            <div className="flex flex-row items-center m-4 justify-between">
                                 <div class="text-center">
                                     <a
                                         href="#_"
@@ -205,12 +299,28 @@ const Home = (props) => {
                                         </a>
                                     </Boop>
                                 </div>
+                                <hr />
+                            </div>
+                            <div className="flex flex-col text-center items-center justify-center">
+                                <button
+                                    className="px-4 py-2 text-blue-900 100rounded-md hover:underline text-center"
+                                    type="button"
+                                    onClick={() => {
+                                        setShowModal(true);
+                                    }}
+                                >
+                                    Creator of SAIM - Messenger
+                                </button>
+
+                                {showModal && (
+                                    <CreatorModal setOpenModal={setShowModal} />
+                                )}
                             </div>
                         </div>
                     </div>
                     <div
                         className="border-2 border-gray-200 rounded-xl bg-gray-200"
-                        style={{ width: "700px", height: "600px" }}
+                        style={{ width: "auto", height: "600px" }}
                     >
                         <div className="m-2 border-2 border-black h-14 from-b rounded-xl bg-gradient-to-r from-blue-500 to-blue-400">
                             <p className="text-white font-bold m-4 text-2xl">

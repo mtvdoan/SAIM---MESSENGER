@@ -10,11 +10,11 @@ const CreateRoom = (props) => {
     const [passKey, setPasskey] = useState("");
     const [roomId, setRoomId] = useState("");
     const [errors, setErrors] = useState([]);
-    useEffect(() => {
-        if (roomName !== "") {
-            navigate(`/rooms/${roomId}`);
-        }
-    }, [user]);
+    // useEffect(() => {
+    //     if (roomName !== "") {
+    //         navigate(`/rooms/${roomId}`);
+    //     }
+    // }, [user]);
 
     const createRoom = (e) => {
         e.preventDefault();
@@ -43,8 +43,10 @@ const CreateRoom = (props) => {
                 console.dir(e.target);
                 setUser({ ...user, room: roomName });
                 setRoomId(res.data._id);
-                socket.emit("join-room", roomName);
-                alert("Thanks for creating a new room!  Joining room now...🤖");
+                // socket.emit("join-room", roomName);
+                navigate("/celebrate");
+                alert("Thanks for creating a new room!");
+                
             })
             .catch((err) => {
                 console.log(err.response.data.errors);
@@ -79,7 +81,7 @@ const CreateRoom = (props) => {
                                             setRoomName(e.target.value)
                                         }
                                         value={roomName}
-                                        className="form-control text-black"
+                                        className="form-control text-black rounded-lg shadow-lg"
                                     />
                                 </div>
                                 <Boop rotation={"15"} duration={"200"}>
@@ -101,7 +103,7 @@ const CreateRoom = (props) => {
                                 </label>
                                 <input
                                     type="text"
-                                    className="text-black"
+                                    className="text-black rounded-lg shadow-lg"
                                     name="passKey"
                                     value={passKey}
                                     onChange={(e) => setPasskey(e.target.value)}

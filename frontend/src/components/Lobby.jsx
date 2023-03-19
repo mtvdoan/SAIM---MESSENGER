@@ -80,7 +80,7 @@ const Lobby = (props) => {
                     <form onSubmit={joinRoom}>
                         <select
                             onChange={onChangeHandler}
-                            className="form-control"
+                            className="form-control rounded-lg m-2 shadow-lg"
                         >
                             <option selected>Choose a Room</option>
                             {rooms.map((room, i) => (
@@ -95,7 +95,7 @@ const Lobby = (props) => {
                         </select>
                         <input
                             type="text"
-                            className="text-black"
+                            className="text-black rounded-lg shadow-lg"
                             name="passKey"
                             value={passKey}
                             placeholder="Enter Pass Key"

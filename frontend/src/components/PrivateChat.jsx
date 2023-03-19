@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import { UserContext } from "../context/UserContext";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -105,44 +105,61 @@ const PrivateChat = (props) => {
         <>
             <div>
                 <div className="h-auto ">
-                    <nav className="whitespace-nowrap m-2 border-gray-200 px-2 sm:px-4 py-10 rounded-2xl shadow-2xl fill-indigo-400border-2  bg-blue-400">
-                        <div className="container grid grid-cols-2 content-center flex flex-wrap items-center justify-between mx-auto">
-                            <div className="flex items-center justify">
-                                <h1 className="text-5xl mr-44 font-extrabold text-white dark:text-white">
-                                    SAIM - MESSENGER
+                    <nav className="flex justify-center items-center flex-col m-2 shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
+                        <div className=" flex flex-row">
+                            <Boop rotation={"5"} timing={"100"}>
+                                <img
+                                    src={aolemoji}
+                                    className=" h-20 w-25"
+                                    alt="aolemoji"
+                                />
+                            </Boop>
+                            <div className="flex justify-center">
+                                <h1 className="flex text-4xl content-center items-center font-extrabold text-white dark:text-white">
+                                    <Boop rotation={"3"} timing={"100"}>
+                                        SAIM - MESSENGER 👋
+                                    </Boop>
                                 </h1>
                             </div>
-                            <div className="grid grid-1 contents-center ">
-                                <Boop rotation={"10"} timing={"100"}>
-                                    <p className="tracking-tighter text-gray-900 md:text-lg dark:text-gray-400">
-                                        <mark className="grid w-auto grid-cols-2 content-center m-auto m-4 p-4 bg-blue-800 rounded-xl shadow-lg h-28 w-80">
-                                            <h1 className=" text-5xl font-extrabold text-white dark:text-white mt-10">
-                                                @ {user.screenName}
-                                            </h1>
-                                            <img
-                                                src={aolemoji}
-                                                alt="aolemoji"
-                                                style={{
-                                                    height: "150px",
-                                                    width: "200px",
-                                                }}
-                                                className=" ml-36"
-                                            />
-                                        </mark>
-                                    </p>
-                                </Boop>
-                            </div>
+                            <mark className="grid grid-cols-2 content-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 w-48">
+                                <div className="flex justify-between w-48 p-4 pb-4">
+                                    <h1
+                                        style={{ fontSize: "1.5rem" }}
+                                        className=" text-xl flex justify-center items-center font-extrabold text-white dark:text-white "
+                                    >
+                                        @ {user.screenName}
+                                    </h1>
+                                    <Boop rotation={"15"} timing={"100"}>
+                                        <img
+                                            src={aolemoji}
+                                            alt="aolemoji"
+                                            style={{
+                                                height: "100px",
+                                                width: "100px",
+                                            }}
+                                            className="flex justify-end"
+                                        />
+                                    </Boop>
+                                </div>
+                            </mark>
                         </div>
-                    </nav>
+                        <div className="">
+                            <p className=" text-gray-900 md:text-lg dark:text-gray-900">
+                                A space where millennials can chat and share
+                                their hilarious away messages
+                            </p>
+                        </div>
+                    </nav>{" "}
+
                 </div>
                 {/* The chat box itself */}
                 <div
-                    className="rounded-xl mt-0 m-auto shadow-2xl text-xlp-2 grid grid-col-2 content-center"
-                    style={{ width: "1300px" }}
+                    className="rounded-xl  mt-0 m-16 shadow-2xl text-xlp-2 grid grid-col-2 content-center"
+                    style={{ width: "auto" }}
                 >
                     <div
                         className="border-1 rounded-xl border-black bg-gray-300"
-                        style={{ width: "auto", height: "675px" }}
+                        style={{ width: "auto", height: "750px" }}
                     >
                         <h2
                             className=" rounded-t-lg text-3xl p-4 tracking-widest font-extrabold dark:text-white bg-blue-500 border-black border-2"
@@ -172,6 +189,7 @@ const PrivateChat = (props) => {
                             <div
                                 className="border-2 whitespace-normal border-black overflow-auto p-2 m-4 bg-white"
                                 id="messages"
+                                //   ref={messagesRef}
                                 style={{ maxHeight: "900px" }}
                             >
                                 <div

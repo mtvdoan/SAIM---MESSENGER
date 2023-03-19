@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.bg_image{
+  background-image: url('./images/bliss.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  height: 100%;
+  
+  color: #f5f5f5;
+}
+/* 
+body{ 
+    min-height: 100vh; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(170, 200, 238);
+} */
+
+#root{
+    /* flex-grow: 1;
+    display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 15px gray;
+}
+
+.Login, .Register, .Home, .CreatorModal, .Celebrate, .AwayMessages{
+    width:100%;
+    flex-grow:1;
+    padding: 1rem;
+    overflow-y: auto;
+
+}

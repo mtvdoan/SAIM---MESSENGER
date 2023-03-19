@@ -25,15 +25,13 @@ const UserModal = (props) => {
             .get("http://localhost:8000/api/users/", { withCredentials: true })
             .then((response) => {
                 setUsersList(response.data.allUsers);
-                console.log("allusers in usermodal", response.data.allUsers);
-                console.log("buuuupr");
             })
             .catch((err) => console.log(err));
     }, []);
 
     const findOneUser = (userId) => {
         axios
-            .get("http://localhost:8000/api/users/" + userId)
+            .get("http://localhost:8000/api/users/" + userId, {withCredentials: true})
             .then((response) => {
                 setUser(response.data);
             })

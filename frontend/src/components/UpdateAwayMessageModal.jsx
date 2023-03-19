@@ -74,11 +74,12 @@ const UpdateAwayMessageModal = (props) => {
                             <Button
                                 onClick={handleOpen}
                                 variant="gradient"
+                                className="m-4"
                                 color="green"
                                 size="lg"
                             >
                                 <div className="text-sm font-extrabold">
-                                    Update Away Message
+                                    Update
                                 </div>
                             </Button>
                         </Boop>

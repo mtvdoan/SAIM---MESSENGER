@@ -15,8 +15,11 @@ import PrivateChat from './components/PrivateChat';
 import './App.css';
 import UsersList from './components/UsersList';
 import CreatorModal from './components/CreatorModal';
-
+import io from 'socket.io-client';
+import Celebrate from './components/Celebrate';
+//at this point deploy works but chat does NOT.  need to fix socketio
 function App() {
+    // const socket = io.connect("http://localhost:8000");//new
     const [authorized, setAuthorized] = useState("");
     return (
         <>
@@ -28,13 +31,14 @@ function App() {
                             <Route index element={<Login authorized={authorized} setAuthorized={setAuthorized}/>}/>
                             <Route path="/register" element={<Register authorized= {authorized} setAuthorized={setAuthorized}/>}/>
                             <Route path="/home/:id" element={<Home setAuthorized={setAuthorized}/>}/>
+                            <Route path="/celebrate" element={<Celebrate setAuthorized={setAuthorized}/>}/>
                             <Route path="/users" element={<UsersList setAuthorized={setAuthorized}/>}/>
                             <Route path="/home/:id" element={<UserModal setAuthorized={setAuthorized}/>}/>
                             <Route path="/awayMessages" element={<AwayMessagesList setAuthorized={setAuthorized}/>}/>
                             <Route path="/awayMessages/:id/" element={<ViewAwayMessageModal setAuthorized={setAuthorized}/>}/>
                             <Route path="/awayMessages/:id/" element={<UpdateAwayMessage setAuthorized={setAuthorized}/>}/>
                             <Route path="/awayMessages" element={<CreateAwayMessage setAuthorized={setAuthorized}/>}/>
-                            <Route path="/rooms" element={<CreateRoom/>}/>
+                            <Route path="/rooms" element={<CreateRoom setAuthorized={setAuthorized} authorized={authorized}/>}/>
                             <Route path="/rooms/all" element={<Lobby authorized={authorized} setAuthorized={setAuthorized}/>}/>  
                             <Route path="/rooms/:roomId" element={<PrivateChat authorized={authorized} setAuthorized={setAuthorized}/>}/>                        
                             <Route path="/creator" element={<CreatorModal authorized={authorized} setAuthorized={setAuthorized}/>}/>                        
