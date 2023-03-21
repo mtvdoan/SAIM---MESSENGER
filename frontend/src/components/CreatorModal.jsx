@@ -42,7 +42,7 @@ export default function CreatorModal({ setOpenModal }) {
                                             >
                                                 <a
                                                     className="hover:underline cursor-pointer"
-                                                    href="https://github.com/mtvdoan/SAIM-MESSENGER"
+                                                    href="https://github.com/mtvdoan"
                                                 >
                                                     <img
                                                         className=" h-24 w-24 flex justify-center items-center"

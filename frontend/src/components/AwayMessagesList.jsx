@@ -1,7 +1,5 @@
 import { UserContext } from "../context/UserContext";
 import React, { useState, useEffect, useContext } from "react";
-import Chat from "./Home";
-import logo1 from "../images/logo1.png";
 import aolemoji from "../images/aolemoji.png";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -19,7 +17,7 @@ const AwayMessagesList = (props) => {
     const [play] = useSound(WindowsXpShutDown);
     const [awayMessageLabel, setAwayMessageLabel] = useState("");
     const [awayMessageCreator, setAwayMessageCreator] = useState("");
-    const [showModal, setShowModal] = React.useState(false);
+    const [showModal, setShowModal] = useState(false);
     const [awayMessagesList, setAwayMessagesList] = useState([]);
     const [usersList, setUsersList] = useState([]);
     const { user, setUser, socket } = useContext(UserContext);

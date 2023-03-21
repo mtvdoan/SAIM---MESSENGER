@@ -1,18 +1,13 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import logo1 from "../images/logo1.png";
-import Chat from "./Home";
 import man from "../images/aolemoji.png";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
-import App from "../App";
-import io from "socket.io-client";
 import Boop from "./Boop";
 import useSound from "use-sound";
 import windowXp from "../sounds/windowXp.mp3";
 import aolemoji from "../images/aolemoji.png";
 import CreatorModal from "./CreatorModal";
-import GreetingModal from "./GreetingModal";
 const Login = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [showGreetingModal, setShowGreetingModal] = useState(true);
@@ -51,17 +46,11 @@ const Login = (props) => {
                     screenName: res.data.user.screenName,
                     room: "",
                 });
-                console.log(
-                    "TEST. What is email in localStorage?",
-                    localStorage.getItem("email")
-                );
-                console.log("setuser", res.data.user);
                 alert(`Thanks for logging in, ${res.data.user.screenName}`);
                 play({ windowXp });
                 navigate(`/home/${res.data.user._id}`);
             })
             .catch((err) => {
-                // console.log(err.response.data.errors);
                 setErrors(err.response.data.errors);
             });
     };

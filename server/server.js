@@ -16,17 +16,7 @@ require("dotenv").config();
 
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-// app.use(cors()); //new
 
-// const server = http.createServer(app); //new
-
-// const io = new Server(server, {
-//     //new
-//     cors: {
-//         origin: "https://saim-messenger-frontend.onrender.com",
-//         methods: ["GET", "POST"],
-//     },
-// });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,10 +39,6 @@ const io = socketio(server, {
         credentials: true,
     },
 });
-
-// app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "/index.html");
-// });
 
 io.on("connection", (socket) => {
     console.log(" server io ...on");

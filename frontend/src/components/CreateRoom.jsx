@@ -10,12 +10,6 @@ const CreateRoom = (props) => {
     const [passKey, setPasskey] = useState("");
     const [roomId, setRoomId] = useState("");
     const [errors, setErrors] = useState([]);
-    // useEffect(() => {
-    //     if (roomName !== "") {
-    //         navigate(`/rooms/${roomId}`);
-    //     }
-    // }, [user]);
-
     const createRoom = (e) => {
         e.preventDefault();
         if (roomName.trim() === "") {
@@ -43,7 +37,6 @@ const CreateRoom = (props) => {
                 console.dir(e.target);
                 setUser({ ...user, room: roomName });
                 setRoomId(res.data._id);
-                // socket.emit("join-room", roomName);
                 navigate("/celebrate");
                 alert("Thanks for creating a new room!");
                 

@@ -13,9 +13,7 @@ const UserProvider = ({children}) => {
         email: "",
         room: "" 
     })
-    // const [socket] = useState(() => io.connect("http://localhost:8000")); //new
-    // const [socket] = useState(() => io(process.env.PORT || 8000))
-    // const [socket] = useState(() => io("http://localhost:8000")) // new
+
     return (
         <UserContext.Provider value={{user, setUser, socket}}>
             {children}

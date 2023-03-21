@@ -1,7 +1,7 @@
 import React, { useCallback, useRef } from "react";
 import ReactCanvasConfetti from "react-canvas-confetti";
 import squeak from "../sounds/squeak.wav";
-import {useSound} from "use-sound";
+import { useSound } from "use-sound";
 const canvasStyles = {
     position: "fixed",
     pointerEvents: "none",
@@ -12,7 +12,7 @@ const canvasStyles = {
 };
 
 const Confetti = (props) => {
-    const [play] = useSound(squeak, {volume: 0.5});
+    const [play] = useSound(squeak, { volume: 0.5 });
     const refAnimationInstance = useRef(null);
 
     const getInstance = useCallback((instance) => {
@@ -56,14 +56,10 @@ const Confetti = (props) => {
             spread: 120,
             startVelocity: 45,
         });
-        
-    }, 
-    
-    [makeShot]);
+    }, [makeShot]);
 
     return (
         <>
-            {/* <button onClick={fire}>Fire</button> */}
             <div>
                 <a
                     href="#_"
@@ -75,7 +71,9 @@ const Confetti = (props) => {
                         <span className="absolute bottom-0 left-0 w-24 h-24 -ml-10 bg-purple-500 rounded-full blur-md"></span>
                         <span className="absolute bottom-0 right-0 w-24 h-24 -mr-10 bg-pink-500 rounded-full blur-md"></span>
                     </span>
-                    <span className="relative text-extrabold text-2xl text-white">CONFETTI!</span>
+                    <span className="relative text-extrabold text-2xl text-white">
+                        CONFETTI!
+                    </span>
                 </a>
             </div>
             <ReactCanvasConfetti

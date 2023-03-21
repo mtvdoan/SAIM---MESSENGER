@@ -7,7 +7,6 @@ const index = (req, res) => {
 
 const register = async (req, res) => {
     try {
-        // check to make sure email is not the same
         const checkEmail = await User.findOne({ email: req.body.email });
         if (checkEmail) {
             res.status(400).json({

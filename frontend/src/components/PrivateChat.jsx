@@ -14,6 +14,7 @@ import IM from "../sounds/IM.mp3";
 import CreateRoom from "./CreateRoom";
 import Lobby from "./Lobby";
 import DoorClose from "../sounds/DoorClose.mp3";
+import EmojiPicker from "emoji-picker-react";
 
 const PrivateChat = (props) => {
     const { roomId } = useParams();
@@ -58,8 +59,6 @@ const PrivateChat = (props) => {
             })
             .catch((err) => console.log(err));
     }, []);
-    console.log("What is the name of the chat room?", roomName); //it shows yays
-    console.log("does user have a room info?", user); //yes
     useEffect(() => {
         socket.on("private_message_response", (data) => {
             console.log("Got your message");
@@ -105,7 +104,7 @@ const PrivateChat = (props) => {
         <>
             <div>
                 <div className="h-auto ">
-                    <nav className="flex justify-center items-center flex-col m-2 shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
+                    <nav className="flex justify-center items-center flex-col shadow-lg border-gray-200 px-2 sm:px-4 py-2.5 rounded-lg fill-indigo-400 border-2 bg-blue-400">
                         <div className=" flex flex-row">
                             <Boop rotation={"5"} timing={"100"}>
                                 <img
@@ -121,8 +120,8 @@ const PrivateChat = (props) => {
                                     </Boop>
                                 </h1>
                             </div>
-                            <mark className="grid grid-cols-2 content-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 w-48">
-                                <div className="flex justify-between w-48 p-4 pb-4">
+                            <mark className="flex flex-row justify-center items-center m-4 p-6 bg-blue-800 rounded-xl shadow-lg h-20 ">
+                                <div className="flex justify-between w-auto p-4 pb-4">
                                     <h1
                                         style={{ fontSize: "1.5rem" }}
                                         className=" text-xl flex justify-center items-center font-extrabold text-white dark:text-white "
@@ -150,21 +149,17 @@ const PrivateChat = (props) => {
                             </p>
                         </div>
                     </nav>{" "}
-
                 </div>
                 {/* The chat box itself */}
                 <div
-                    className="rounded-xl  mt-0 m-16 shadow-2xl text-xlp-2 grid grid-col-2 content-center"
-                    style={{ width: "auto" }}
+                    className="flex justify-center items-center m-auto mt-5 mb-5"
+                    style={{ width: "900px" }}
                 >
                     <div
-                        className="border-1 rounded-xl border-black bg-gray-300"
-                        style={{ width: "auto", height: "750px" }}
+                        className="flex flex-col border-1 rounded-xl border-black bg-gray-300"
+                        style={{ height: "750px" }}
                     >
-                        <h2
-                            className=" rounded-t-lg text-3xl p-4 tracking-widest font-extrabold dark:text-white bg-blue-500 border-black border-2"
-                            style={{ width: "auto" }}
-                        >
+                        <h2 className=" rounded-t-lg text-3xl p-4 tracking-widest font-extrabold dark:text-white bg-blue-500 border-black border-2">
                             <div className="flex">
                                 <div className="tracking-tighter text-blue-900">
                                     ROOM NAME: &nbsp; &nbsp;
@@ -182,7 +177,7 @@ const PrivateChat = (props) => {
                         <div
                             className=""
                             style={{
-                                width: "auto",
+                                minWidth:"1000px",
                                 height: "300px",
                             }}
                         >
@@ -195,7 +190,6 @@ const PrivateChat = (props) => {
                                 <div
                                     className="rt-body whitespace-normal m-2 card overflow-y-auto border-1 border-black"
                                     style={{
-                                        width: "auto",
                                         height: "300px",
                                         overflow: "visible",
                                         wordWrap: "break-word",
@@ -218,13 +212,11 @@ const PrivateChat = (props) => {
                                                 style={{
                                                     fontSize: "24px",
                                                     display: "flex",
-                                                    maxWidth: "1200px",
                                                 }}
                                                 key={i}
                                             >
                                                 <div
                                                     style={{
-                                                        maxWidth: "1200px",
                                                         color: "red",
                                                         wordWrap: "break-word", // set word-wrap to break-word
                                                     }}
@@ -278,13 +270,16 @@ const PrivateChat = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-evenly m-2">
+                <div className="flex justify-center">
                     <Boop rotation={5} timing={200}>
                         <button
                             onClick={doorClose}
-                            className="bg-green-500 rounded-xl hover:bg-blue-700 text-white font-bold py-2 px-2 border border-blue-700 rounded"
+                            className="bg-green-500 m-2 hover:bg-blue-700 text-white font-bold py-2 px-2 border border-blue-700 rounded-xl"
                         >
-                            <Link className="text-3xl" to={`/home/${user.id}`}>
+                            <Link
+                                className="text-3xl mb-5"
+                                to={`/home/${user.id}`}
+                            >
                                 Go Back Home
                             </Link>
                         </button>
@@ -298,7 +293,7 @@ const PrivateChat = (props) => {
                                             onClick={() =>
                                                 deleteChatRoom(roomId)
                                             }
-                                            className="text-3xl hover:animate-pulse rounded-xl bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-2 border border-blue-700 rounded"
+                                            className="text-3xl m-2 hover:animate-pulse rounded-xl bg-red-500 hover:bg-red-900 text-white font-bold py-2 px-2 border border-blue-700 rounded"
                                         >
                                             Delete
                                         </button>

@@ -147,7 +147,7 @@ const Celebrate = (props) => {
                                 </div>
                             </mark>
                         </div>
-                        <div className="">
+                        <div className="text-center">
                             <p className=" text-gray-900 md:text-lg dark:text-gray-900">
                                 A space where millennials can chat and share
                                 their hilarious away messages

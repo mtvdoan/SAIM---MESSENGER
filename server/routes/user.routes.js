@@ -1,9 +1,9 @@
 const UserController = require("../controllers/user.controllers");
-const { authenticate } = require("../config/jwt.config");
+// const { authenticate } = require("../config/jwt.config");
 module.exports = (app) => {
-    app.get("/api/users/logout", UserController.logout); //LOGOUT NEEDS TO BE ABOVE FIND
+    app.get("/api/users/logout", UserController.logout); 
     app.get('/api/user-current', UserController.getLogged);
-    app.get("/api/users/", UserController.findAllUsers); //this had authenticate
+    app.get("/api/users/", UserController.findAllUsers); 
     app.get("/api/users/:id/", UserController.findOneUser);
     app.delete("/api/users/:id", UserController.deleteUser);
     app.post("/api/users/register", UserController.register);

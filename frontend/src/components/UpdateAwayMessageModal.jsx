@@ -12,7 +12,6 @@ import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { useParams, useNavigate } from "react-router-dom";
 import Boop from "./Boop";
-import { animated } from "react-spring";
 const UpdateAwayMessageModal = (props) => {
     const [awayMessageLabel, setAwayMessageLabel] = useState(props.label);
     console.log(awayMessageLabel);

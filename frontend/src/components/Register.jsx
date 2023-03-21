@@ -1,12 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import logo1 from "../images/logo1.png";
-import Chat from "./Home";
 import man from "../images/aolemoji.png";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
-import App from "../App";
-import io from "socket.io-client";
 import Boop from "./Boop";
 import aolemoji from "../images/aolemoji.png";
 import CreatorModal from "./CreatorModal";
@@ -48,8 +44,6 @@ const Register = (props) => {
                     screenName: res.data.user.screenName,
                     email: res.data.user.email,
                     room: "",
-                    // password: res.data.user.password,
-                    // confirmPassword: res.data.user.confirmPassword,
                 });
                 alert(
                     `Thanks for registering ${res.data.user.screenName}.  Please sign in to get started.`

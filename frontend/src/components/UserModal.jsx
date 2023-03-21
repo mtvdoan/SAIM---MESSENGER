@@ -7,8 +7,6 @@ import {
     DialogFooter,
 } from "@material-tailwind/react";
 import { UserContext } from "../context/UserContext";
-import { useParams } from "react-router-dom";
-import { animated } from "react-spring";
 import axios from "axios";
 import Boop from "./Boop";
 import aolemoji from "../images/aolemoji.png";

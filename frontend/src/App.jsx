@@ -17,9 +17,8 @@ import UsersList from './components/UsersList';
 import CreatorModal from './components/CreatorModal';
 import io from 'socket.io-client';
 import Celebrate from './components/Celebrate';
-//at this point deploy works but chat does NOT.  need to fix socketio
+
 function App() {
-    // const socket = io.connect("http://localhost:8000");//new
     const [authorized, setAuthorized] = useState("");
     return (
         <>

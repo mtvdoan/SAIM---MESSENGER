@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
-import UserModal from "./UserModal";
 const UsersList = (props) => {
     const { user, setUser, socket } = useContext(UserContext);
     const [usersList, setUsersList] = useState([]);
