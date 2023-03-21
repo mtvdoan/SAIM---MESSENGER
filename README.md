@@ -4,8 +4,9 @@
 A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
 <hr/>
 
-# Features
+# Tech Used/Features
 
+<ul>React JS | Axios | Express.js | Mongoose | MongoDB | Socket.IO | JSON Web Token | Bcrypt</ul>
 <ul>Authentication and Validation</ul>
 <ul>Simple user interface design</ul>
 <ul>Private conversations</ul>
@@ -38,9 +39,7 @@ A React server with Redux for the front end.
 
 # in /client
 npm start
-Client dev server is running on localhost:3000.
-
-You can view the app at localhost:3000. Log in with any valid email and username, and you'll enter into the chatroom, which will display all users (noting which are currently online) and all messages.
+Client dev server is running on localhost:3000
 
 Production build
 Run npm run build on client and server to compile to JavaScript.
