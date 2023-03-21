@@ -1,6 +1,6 @@
 # SAIM-MESSENGER
 ## [LIVE DEMO]
-### A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
+### A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the good old days. 
 
 ### TECH: 
 React JS | Axios | Express.js | Mongoose | MongoDB | Socket.IO | JSON Web Token | Bcrypt
