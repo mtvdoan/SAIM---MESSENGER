@@ -1,11 +1,10 @@
 # SAIM-MESSENGER
 
-react-chat-app
-A real-time chat application with Node.js, Prisma, GraphQL, Next.js, React.js and Apollo.
+A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
 
 Features
-With authentication and authorization
+Authentication and Validation
 Simple user interface design
 Private conversations
 Group conversations
-Search by conversations, users and messages
+CRUD features for Away Messages
