@@ -1,48 +1,45 @@
 # SAIM-MESSENGER
-<a href="https://saim-messenger-frontend.onrender.com/">Live Demo</a>
-<hr/>
-A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
-<hr/>
+## [LIVE DEMO]
+### A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
 
-# Tech Used/Features
+### TECH: 
+React JS | Axios | Express.js | Mongoose | MongoDB | Socket.IO | JSON Web Token | Bcrypt
 
-<ul>React JS | Axios | Express.js | Mongoose | MongoDB | Socket.IO | JSON Web Token | Bcrypt</ul>
-<ul>Authentication and Validation</ul>
-<ul>Simple user interface design</ul>
-<ul>Private conversations</ul>
-<ul>Group conversations</ul>
-<ul>CRUD features for Away Messages</ul>
-<ul>Simple upbeat animations and sounds to promote a positive user's experience.</ul>
-<hr/>
+### FEATURES:
+- Authentication and Validation
+- Simple user interface design
+- Private conversations
+- Group conversations
+- CRUD features for Away Messages
+- Simple upbeat animations and sounds to promote a positive user's experience.
 
 ![image](https://user-images.githubusercontent.com/107096694/226524288-d809209f-501b-4095-89f6-76fca81d7c3f.png)
 ![image](https://user-images.githubusercontent.com/107096694/226524401-9807f791-fc31-4275-bf11-658fa39e2dc8.png)
 ![image](https://user-images.githubusercontent.com/107096694/226524665-22d21138-de50-4723-8fee-0d070c88d44b.png)
-<hr/>
-Setup
-Install dependencies
-Install the dependencies for the client and server.
 
-# in one terminal window
-cd server && npm i
-# in another terminal window
-cd client && npm i
-Start server
-An Express server is maintaining a Socket.io connection, persisting data short-term in memory, and exposes an API for accessing persistent data.
+### Setup
+- Install dependencies
+- Install the dependencies for the client and server.
 
-# in /server
-npm start
-Server is running on localhost:5000.
+### in one terminal window (server)
+    cd server && npm i
+### in another terminal window (client)
+    cd client && npm i 
+### Start server
+    nodemon server.js
+#### Server is running on localhost:8000
 
-Start client
-A React server with Redux for the front end.
-
-# in /client
-npm start
-Client dev server is running on localhost:3000
-
-Production build
-Run npm run build on client and server to compile to JavaScript.
-
-<hr/>
+### Start client
+    npm start
+##### Client is running on localhost:3000
 Hope you liked this project, don't forget to ⭐ the repo.  Thank you!
+
+[Dilinger Markdown Editor]
+
+[LIVE DEMO]: <https://saim-messenger-frontend.onrender.com/>
+[Dilinger Markdown Editor]: <https://dillinger.io/>
+
+
+
+
+
