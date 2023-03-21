@@ -4,7 +4,7 @@
 A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
 <hr/>
 # Features
-* Authentication and Validation
+<ul>Authentication and Validation</ul>
 * Simple user interface design
 * Private conversations
 * Group conversations
