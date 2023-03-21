@@ -3,12 +3,13 @@
 <hr/>
 A redesigned chat application that reminisces the original AOL Instant Messenger.  This is a safe and fun place for Millennials to come chat and share their most hilarious Away Messages just like the gold old days. 
 <hr/>
-Features
-Authentication and Validation
-Simple user interface design
-Private conversations
-Group conversations
-CRUD features for Away Messages
+# Features
+* Authentication and Validation
+* Simple user interface design
+* Private conversations
+* Group conversations
+* CRUD features for Away Messages
+* Simple upbeat animations and sounds to promote a positive user's experience.
 <hr/>
 
 ![image](https://user-images.githubusercontent.com/107096694/226524288-d809209f-501b-4095-89f6-76fca81d7c3f.png)
