@@ -7,7 +7,7 @@ A redesigned chat application that reminisces the original AOL Instant Messenger
 # Features
 
 <ul>Authentication and Validation</ul>
-<ul>Simple user interface design<ul>
+<ul>Simple user interface design</ul>
 <ul>Private conversations</ul>
 <ul>Group conversations</ul>
 <ul>CRUD features for Away Messages</ul>
